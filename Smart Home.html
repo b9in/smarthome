@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital@1&display=swap" rel="stylesheet">
+    <script type="text/javascript" charset="UTF-8" src="https://www.gstatic.com/charts/51/loader.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <!-- 헤더 -->
+        <header>
+            <h1 class="header-text">Smart Home</h1>
+        </header>
+
+        <!-- 내용 -->
+        <div class="content" style="grid-template-rows: 300px 80px 200px 80px 80px;">
+            <!-- 날씨 -->
+            <div id="weather">
+                <div id="date_area" class="weather_text">2022.1.1</div>
+                <div id="city_area" class="weather_text">Seoul</div>
+                <div id="weather_img"><img id="img_area" src="img/clear.svg" alt="clear"></div>
+                <div id="weather_area" class="weather_text">clear sky</div>
+                <div id="temp_area" class="weather_text">27°</div>
+            </div>
+
+            <!-- 온도 -->
+            <div id="temperature">
+                <button class="gbtn" id="btn-1" value="off" onclick="buttonToggle('#btn-1')" style="position: relative; top: 0px; box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 3px; background: rgba(255, 255, 255, 0.4);">
+                    <div class="textTH_area">temperature</div>
+                    <div id="numT" class="numTH_area">27 °C</div>
+
+                </button>
+            </div>
+
+            <!-- 습도 -->
+            <div id="humidity">
+                <button class="gbtn" id="btn-2" value="off" onclick="buttonToggle('#btn-2')" style="position: relative; top: 0px; box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 3px; background: rgba(255, 255, 255, 0.4);">
+                    <div class="textTH_area">humidity</div>
+                    <div id="numH" class="numTH_area">45 %</div>
+
+                </button>
+            </div>
+
+            <!-- 그래프 -->
+            <div class="graph-area" id="grp-1" style="display: none;">
+                <div class="graph">
+                    <div id="curve_chart"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 369px; height: 300px;"><div aria-label="A chart." style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;"><svg width="369" height="300" aria-label="A chart." style="overflow: hidden;"><defs id="_ABSTRACT_RENDERER_ID_34"><clippath id="_ABSTRACT_RENDERER_ID_35"><rect x="25" y="58" width="334" height="185"></rect></clippath></defs><g><rect x="157" y="275" width="69" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><rect x="157" y="275" width="69" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="183" y="284.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Humidity</text></g><path d="M157,280.5L179,280.5" stroke="#3366cc" stroke-width="2" fill-opacity="1" fill="none"></path></g></g><g><rect x="25" y="58" width="334" height="185" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g clip-path="url(http://49.174.198.61:8008/#_ABSTRACT_RENDERER_ID_35)"><g><rect x="25" y="242" width="334" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="25" y="196" width="334" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="25" y="150" width="334" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="25" y="104" width="334" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="25" y="58" width="334" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect></g><g><rect x="25" y="242" width="334" height="1" stroke="none" stroke-width="0" fill="#333333"></rect></g><g><path d="M67.125,159.7C67.125,159.7,122.625,103.8866666666728,150.375,97.13999999999999C178.125,90.3933333333272,205.87500000000003,95.29999999999998,233.625,119.22C261.375,143.14,316.875,240.66,316.875,240.66" stroke="#3366cc" stroke-width="2" fill-opacity="1" fill="none"></path></g></g><g></g><g><g><text text-anchor="middle" x="67.125" y="259.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">16:14</text></g><g><text text-anchor="middle" x="150.375" y="259.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">16:15</text></g><g><text text-anchor="middle" x="233.625" y="259.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">16:16</text></g><g><text text-anchor="middle" x="316.875" y="259.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">11:14</text></g><g><text text-anchor="end" x="21.5" y="246.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#444444">0</text></g><g><text text-anchor="end" x="21.5" y="200.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#444444">25</text></g><g><text text-anchor="end" x="21.5" y="154.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#444444">50</text></g><g><text text-anchor="end" x="21.5" y="108.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#444444">75</text></g><g><text text-anchor="end" x="21.5" y="62.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#444444">100</text></g></g></g><g></g></svg><div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>Time</th><th>Humidity</th></tr></thead><tbody><tr><td>16:14</td><td>45</td></tr><tr><td>16:15</td><td>79</td></tr><tr><td>16:16</td><td>67</td></tr><tr><td>11:14</td><td>1</td></tr></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 310px; left: 379px; white-space: nowrap; font-family: Arial; font-size: 11px;">Humidity</div><div></div></div></div>
+                </div>
+            </div>
+
+            <!-- 미세먼지 -->
+            <div id="dust" style="grid-row: 3 / 4;">
+                <div class="box">
+                    <div id="dust_area">
+                        <div id="dustImg">
+                            <img src="img/icons8-neutral-100.png" alt="미세먼지">
+                        </div>
+                        <div id="textDT">
+                            <div id="textDT_area">dust</div>
+                            <div id="numDT_area">0 ㎍/m³</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 무드등 -->
+            <div id="lamp" style="grid-row: 4 / 5;">
+                <button class="box" id="lampBtn" value="off" onclick="buttonToggle('#lampBtn')">
+                    <div id="textLM">lamp</div>
+                    <div class="option_btn" onclick="event.stopPropagation();" style="display: none;">
+                        <img src="img/icons8-color-64.png" alt="색상">
+                    </div>
+                </button>
+            </div>
+
+            <!-- 커튼 -->
+            <div id="curtain" style="grid-row: 5 / 6;">
+                <button class="box" id="curtainBtn" value="off" onclick="buttonToggle('#curtainBtn')">
+                    <div id="textCT">curtain</div>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="weather_box"></div>
+    <div class="bgimg"></div>
+
+    <div class="popup">
+        <!--팝업-->
+        <div class="popup_layer"> <!--팝업창-->
+            <div class="text_area"><!--텍스트 영역-->
+                <strong class="title">Color change</strong>
+                <p class="text">
+                    </p><div id="palletBox" class="pallet"><div id="#FF0000" class="colorBox" onclick="colorSet(this)" style="background: rgb(255, 0, 0);"></div><div id="#FF5E00" class="colorBox" onclick="colorSet(this)" style="background: rgb(255, 94, 0);"></div><div id="#FFBB00" class="colorBox" onclick="colorSet(this)" style="background: rgb(255, 187, 0);"></div><div id="#FFE400" class="colorBox" onclick="colorSet(this)" style="background: rgb(255, 228, 0);"></div><div id="#ABF200" class="colorBox" onclick="colorSet(this)" style="background: rgb(171, 242, 0);"></div><div id="#1DDB16" class="colorBox" onclick="colorSet(this)" style="background: rgb(29, 219, 22);"></div><div id="#00D8FF" class="colorBox" onclick="colorSet(this)" style="background: rgb(0, 216, 255);"></div><div id="#0054FF" class="colorBox" onclick="colorSet(this)" style="background: rgb(0, 84, 255);"></div><div id="#0100FF" class="colorBox" onclick="colorSet(this)" style="background: rgb(1, 0, 255);"></div><div id="#5F00FF" class="colorBox" onclick="colorSet(this)" style="background: rgb(95, 0, 255);"></div><div id="#FF00DD" class="colorBox" onclick="colorSet(this)" style="background: rgb(255, 0, 221);"></div><div id="#FF007F" class="colorBox" onclick="colorSet(this)" style="background: rgb(255, 0, 127);"></div><div id="#000000" class="colorBox" onclick="colorSet(this)" style="background: rgb(0, 0, 0);"></div><div id="#FFFFFF" class="colorBox" onclick="colorSet(this)" style="background: rgb(255, 255, 255);"></div></div>
+                    <input type="text" id="colortext" value="#" maxlength="7" minlength="7">
+                    <input id="submit_btn" type="button" value="확인">
+                <p></p>
+            </div>
+            <button type="button" name="button" class="btn_close">x</button>
+        </div>
+        <div class="popup_dimmed"></div> <!--반투명 배경-->
+    </div>
+    <script src="chart.js"></script>
+<script src="mainscript.js"></script>
+<script src="weather.js"></script>
+<div style="position: absolute; display: none;"><div style="background: infobackground;padding: 1px;border: 1px solid infotext;font-size: 11px;margin: 11px;font-family: Arial;">-100</div></div><div style="position: absolute; display: none;"><div style="background: infobackground; padding: 1px; border: 1px solid infotext; font-size: 11px; margin: 11px; font-family: Arial;">-100</div></div><div style="position: absolute; display: none;"><div style="background: infobackground; padding: 1px; border: 1px solid infotext; font-size: 11px; margin: 11px; font-family: Arial;">-100</div></div><div style="position: absolute; display: none;"><div style="background: infobackground; padding: 1px; border: 1px solid infotext; font-size: 11px; margin: 11px; font-family: Arial;">-100</div></div><div style="position: absolute; display: none;"><div style="background: infobackground; padding: 1px; border: 1px solid infotext; font-size: 11px; margin: 11px; font-family: Arial;">-100</div></div><div style="position: absolute; display: none;"><div style="background: infobackground; padding: 1px; border: 1px solid infotext; font-size: 11px; margin: 11px; font-family: Arial;">-100</div></div><div style="position: absolute; display: none;"><div style="background: infobackground; padding: 1px; border: 1px solid infotext; font-size: 11px; margin: 11px; font-family: Arial;">-100</div></div>
+
+</body>
+</html>
