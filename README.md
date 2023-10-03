@@ -1,4 +1,4 @@
-# smarthome
+# SMART HOME
 Google assistant를 이용한 스마트 홈 프로젝트
 
 ## 프로젝트 소개
